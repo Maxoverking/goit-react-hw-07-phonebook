@@ -8,30 +8,30 @@ import Filter from "./Filter";
 import WrapperForPhonebook  from "./Wrapper";
 import { useEffect } from "react";
 import { useDispatch,useSelector } from 'react-redux';
-import { addNewContacts, getFilteredContacts } from "./redux/selectors";
+import { addNewContacts, getFilteredContacts, isLoadingContacts } from "./redux/selectors";
 import { getContacts,addContacts,deleteContacts } from "./redux/operations";
 
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { items,isLoading  } = useSelector(addNewContacts);
+  const items = useSelector(addNewContacts);
+  const isLoading = useSelector(isLoadingContacts);
   const filter = useSelector(getFilteredContacts);
 
   useEffect(() => {
     dispatch(getContacts())
   },[dispatch])
 
-  console.log("🚀  items", items);
-  
   const getFormData = newContact => {
   if (items.length === 0) {
     dispatch(addContacts(newContact));
     return;
     } else {
-    const existingContacts = 
-        items.findIndex(itemContacts =>
-        newContact.name === itemContacts.name) !== -1;
-    //Проверка если контакт уже есть
+      const existingContacts = 
+      items.findIndex(itemContacts =>
+        newContact.name === itemContacts.name) !==-1;
+        // Проверка если контакт уже есть
+        // console.log("🚀  existingContacts", existingContacts);
     if(existingContacts){
       alert(`${newContact.name} is already in contacts.`)
       return;
@@ -62,8 +62,7 @@ export const App = () => {
   wrapperClass="progress-bar-wrapper"
   borderColor = '#F4442E'
   barColor = '#51E5FF'
-/> :
-        ""}
+/> :""}
         
         {items.length === 0 ? '' :
           <>
