@@ -1,20 +1,20 @@
-import { FormContainer, Forma, Input, Label } from './Form.styled';
-import { nanoid } from 'nanoid';
-import { useState } from 'react';
+import { FormContainer,Forma,Input,Label } from './Form.styled'
+import { nanoid } from 'nanoid'
+import { useState } from 'react'
 
-export default function Form({submitData}) {
+export default function Form({ submitData }) {
     const uniqueId = nanoid();
     const [id, setId] = useState('');
     const [name, setName] = useState('');
-    const [number, setNumber] = useState('');
+    const [phone, setPhone] = useState('');
 
     const inputAddedName = evt => {
         const { name, value } = evt.target;
         if (name === 'name') {
             setName(value);
             setId(uniqueId);
-        } else if (name === 'number') {
-            setNumber(value);
+        } else if (name === 'phone') {
+            setPhone(value);
         }
     };
 
@@ -23,14 +23,14 @@ export default function Form({submitData}) {
         //Передаем данные в Арр через пропс submitData
         submitData({
             name: name,
-            number: number,
+            phone: phone,
             id: id
         });
         resetForm();
     };
 
     const resetForm = () => {
-        setId('');setName('');setNumber('');
+        setId('');setName('');setPhone('');
     };
 
     return (
@@ -51,10 +51,10 @@ export default function Form({submitData}) {
                 <Input
                     autoComplete="off"
                     type="tel"
-                    name="number"
+                    name="phone"
                     pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                     title="May contain only number"
-                    value={number}
+                    value={phone}
                     onChange={inputAddedName}
                     required />
 

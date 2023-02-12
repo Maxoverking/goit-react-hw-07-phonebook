@@ -6,8 +6,8 @@ export default function Contacts ({ contacts, deleteContact }){
         <>
             <H2>Contacts</H2>
             <UL>
-            {contacts.map(({id,name,number}) => (
-                <LI key={id}>{name} : {number}
+            {contacts.map(({id,name,phone}) => (
+                <LI key={id}>{name} : {phone}
                     <div>
                         <button 
                             type="button"
@@ -15,6 +15,7 @@ export default function Contacts ({ contacts, deleteContact }){
                             //передача id в метод для удаления обьекта
                         >DELETE</button> 
                     </div>
+                     
                 </LI>    
             ))}
             </UL>

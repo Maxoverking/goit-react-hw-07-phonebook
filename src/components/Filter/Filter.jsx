@@ -1,16 +1,15 @@
-// import { filterContactsAction } from "redux/actions"; // было
 import { Label } from "components/Form/Form.styled"
 import { Input } from "./Filter.styled"
-import { filterContactsAction } from "redux/contacts.slice";
-import { getFilteredContacts } from "redux/selectors";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
+import { getFilteredContacts } from "components/redux/selectors";
+import { filterContactsAction } from "components/redux/filter.slice";
 
 export default function Filter() {
     const dispatch = useDispatch();
     const filter = useSelector(getFilteredContacts);
 
     const chooseFilterContact = (evt) => {
-    dispatch(filterContactsAction(evt.target.value));
+        dispatch(filterContactsAction(evt.target.value ));
   }
     return (
         <>
