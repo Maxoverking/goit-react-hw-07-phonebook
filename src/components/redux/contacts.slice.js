@@ -1,7 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { STATUS } from 'components/Status/costants.status';
 import { initialStateContacts } from './init.state';
-import { getContacts, addContacts, deleteContacts } from './operations';
+import {
+  getContacts,
+  // addContacts,
+  // deleteContacts
+} from './operations';
 
 const contactsSlice = createSlice({
   name: 'contacts',

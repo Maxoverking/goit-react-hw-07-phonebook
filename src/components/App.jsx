@@ -14,7 +14,7 @@ import { getContacts,addContacts,deleteContacts } from "./redux/operations";
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { items,isLoading ,error } = useSelector(addNewContacts);
+  const { items,isLoading  } = useSelector(addNewContacts);
   const filter = useSelector(getFilteredContacts);
 
   useEffect(() => {
