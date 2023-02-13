@@ -8,8 +8,8 @@ import Filter from "./Filter";
 import WrapperForPhonebook  from "./Wrapper";
 import { useEffect } from "react";
 import { useDispatch,useSelector } from 'react-redux';
-import { addNewContacts, getFilteredContacts, isLoadingContacts } from "./redux/selectors";
-import { getContacts,addContacts,deleteContacts } from "./redux/operations";
+import { addNewContacts, getFilteredContacts, isLoadingContacts } from "../redux/selectors";
+import { getContacts,addContacts,deleteContacts } from "../redux/operations";
 
 
 export const App = () => {
