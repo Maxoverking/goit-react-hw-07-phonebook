@@ -32,7 +32,7 @@ const contactsSlice = createSlice({
       .addCase(deleteContacts.fulfilled, (state, { payload }) => {
         state.isLoading = STATUS.success;
         const removeContact = state.items.findIndex(
-          contact => contact.id === payload
+          contact => contact.id === payload.id
         );
         state.items.splice(removeContact, 1);
       })

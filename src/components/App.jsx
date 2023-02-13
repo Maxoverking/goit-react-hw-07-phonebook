@@ -40,6 +40,7 @@ export const App = () => {
     }
   }
   const deleteContact = uniqueId => {
+    // console.log("🚀  uniqueId", uniqueId);
     dispatch(deleteContacts(uniqueId));
     }
 
